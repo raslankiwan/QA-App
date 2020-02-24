@@ -1,0 +1,77 @@
+.topic {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2%;
+}
+
+.topic-logo-container {
+    justify-content: center;
+    vertical-align: middle;
+}
+
+.topic-logo {
+    flex-grow: 1;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    border-radius: 50%;
+    align-items: center;
+    border-color: chocolate;
+    border-radius: 2;
+    border-style: solid;
+}
+
+.logo-text {
+  position: relative;
+  top: 25px; 
+  font-size: 50px; 
+  line-height: 50px; 
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+
+}
+
+.topic-info {
+    flex-grow: 4;
+    flex-direction: column;
+    padding-left: 2%;
+    justify-content: center;
+    align-items: center;
+}
+
+.topic-name {
+    font-size: large;
+    font-weight: bold;
+    color: royalblue;
+    margin-bottom: .5%;
+}
+
+.topic-desc {
+    margin-bottom: .5%;
+
+}
+
+.topic-tags {
+    
+    text-align: center;
+    border-radius: 25px;
+    height: 50%;
+    background-color: lightgray;
+    padding: 5px;
+}
+.tags-container {
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+ul , li {
+    display: inline;
+    list-style-type: none;
+
+    margin: 10px ;
+    margin-left: 0;
+    padding: 0;
+}

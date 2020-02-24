@@ -1,0 +1,24 @@
+<div class="topic">
+    <div class="topic-logo-container">
+        <div class="topic-logo">
+            <span class="logo-text">{{topic.logoUrl}}</span>
+            
+        </div>
+    </div>
+    <div class="topic-info">
+        <div class="topic-name">
+          <a routerLink="myquestions/{{topic.id}}" state="{data: {{topic}}}">{{topic.name}}</a>  
+        </div>
+        <div class="topic-desc">{{topic.description}}</div>
+        <div >
+            <ul >
+                <li *ngFor="let tag of topic.tags" >
+                    <span  class="topic-tags">{{tag}}</span>
+                    
+                </li>
+            </ul>
+        </div>
+      
+    </div>
+  
+</div>

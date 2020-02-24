@@ -1,0 +1,31 @@
+<div *ngIf="question">
+    <div class="title">
+        <h3 >{{question.question}}</h3>
+
+        <button  class="btn btn-primary" (click)="showAnswerModal()" >New Answer</button>
+
+        <kendo-dialog title="Add an Answer" *ngIf="showModal" (close)="hideAnswerModal('cancel')" [minWidth]="250" [width]="450">
+            <p style="margin: 30px; text-align: center;">Please type your answer:</p>
+        <div style="margin: 30px; text-align: center;">        
+                <input #answer (change)="updateAnswer(answer.value)" placeholder="Answer" />
+        </div>
+            <kendo-dialog-actions>
+                <button kendoButton (click)="hideAnswerModal('cancel')">Cancel</button>
+                <button kendoButton (click)="hideAnswerModal('Post')" primary="true">Post</button>
+            </kendo-dialog-actions>
+        </kendo-dialog>
+
+    </div>
+    
+
+
+    <div class="answers-panel" *ngIf="answers">
+        <ul class="line-separated">
+            <li *ngFor="let answer of answers" >
+                <app-answer (answerDeleted)="updateAnswers($event)" [answer]="answer" [questionId]="question.questionId"></app-answer>
+            </li>
+        </ul> 
+    </div>
+
+
+</div>

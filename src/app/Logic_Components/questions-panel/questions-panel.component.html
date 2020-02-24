@@ -1,0 +1,32 @@
+
+<div *ngIf="!loading" >
+   
+    <div class="title">
+        <h3 >Learn about: {{topic.name}}</h3>
+
+        <button  class="btn btn-primary" (click)="showQuestionModal()" >New Question</button>
+    
+        <kendo-dialog title="Add a Question" *ngIf="opened" (close)="hideQuestionModal('cancel')" [minWidth]="250" [width]="450">
+            <p style="margin: 30px; text-align: center;">Please type your question:</p>
+           <div style="margin: 30px; text-align: center;">        
+                <input #question (change)="updateQuestion(question.value)" placeholder="Question" />
+           </div>
+            <kendo-dialog-actions>
+                <button kendoButton (click)="hideQuestionModal('cancel')">Cancel</button>
+                <button kendoButton (click)="hideQuestionModal('Post')" primary="true">Post</button>
+            </kendo-dialog-actions>
+        </kendo-dialog>
+    </div>
+    
+
+    <div class="questions-panel" *ngIf="questions">
+        <ul class="line-separated">
+            <li *ngFor="let question of questions" >
+                <app-question (questionDeleted)="getQuestions()" [question]="question"></app-question>
+            </li>
+        </ul>
+       
+    </div>
+
+</div>
+<router-outlet></router-outlet>

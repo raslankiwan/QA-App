@@ -1,0 +1,19 @@
+.answer-panel {
+    padding: .60%
+}
+
+
+.answer-data {
+    font-size: large;
+    color: royalblue;
+}
+
+.answer-actions {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+}
+
+.action-item {
+    padding-right: 2%;
+}

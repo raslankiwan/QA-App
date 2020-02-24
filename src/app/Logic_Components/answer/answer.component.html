@@ -1,0 +1,47 @@
+<div class="answer-panel">
+    <div class="answer-data">
+        {{answer.answer}}
+    </div>    
+    <div class="answer-actions">
+       <div class="action-item" (click)="incLikes()">
+          
+            <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+            <span> {{answer.likes}} </span>
+       </div>
+
+       <div class="action-item" (click)="incDislikes()">
+            <i class="fa fa-thumbs-o-down" aria-hidden="true"></i> 
+            <span> {{answer.dislikes}} </span>
+        </div>
+       
+        <div class="action-item" (click)="toggleDeleteModal()">
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+
+        </div>
+
+        <div class="action-items" (click)="toggleEditModal()">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+
+        </div>
+
+
+        <kendo-dialog title="Delete answer" *ngIf="deleteModal" (close)="toggleDeleteModal()" [minWidth]="250" [width]="450">
+            <p style="margin: 30px; text-align: center;">Are you sure you want to delete this answer?</p>
+            <kendo-dialog-actions>
+                <button kendoButton (click)="toggleDeleteModal()">Cancel</button>
+                <button kendoButton (click)="deleteAnswer()" primary="true">Delete</button>
+            </kendo-dialog-actions>
+        </kendo-dialog>
+
+
+        <kendo-dialog title="Edit answer" *ngIf="editModal" (close)="toggleEditModal()" [minWidth]="250" [width]="450">
+            <div style="margin: 30px; text-align: center;">Please enter the modified answer: </div>
+            <div style="margin: 30px; text-align: center;"><input  #newAnswer (change)="updateAnswer(newAnswer.value)" placeholder="New Answer" /></div>
+        <kendo-dialog-actions>
+                <button kendoButton (click)="toggleEditModal()">Cancel</button>
+                <button kendoButton (click)="postAnswer()" primary="true">Update</button>
+            </kendo-dialog-actions>
+        </kendo-dialog>
+    </div>
+
+</div>                                                                

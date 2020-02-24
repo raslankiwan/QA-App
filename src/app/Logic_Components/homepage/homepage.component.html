@@ -1,0 +1,12 @@
+
+<h5>Learn all about Angular</h5>
+<div class="main-container">
+    <ul class="line-separated">
+        <li *ngFor="let topic of topics" class="topics-container line-seperated" >
+            <app-topics [topic]="topic">
+            </app-topics>
+        </li>
+    </ul>
+</div>
+
+
